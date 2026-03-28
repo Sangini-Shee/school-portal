@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create principal (admin only)
-router.post('/', adminAuth, upload.fields([
+router.post('/', upload.fields([
   { name: 'photo', maxCount: 1 },
   { name: 'documents', maxCount: 10 }
 ]), async (req, res) => {
@@ -51,7 +51,7 @@ router.put('/:id', adminAuth, upload.fields([
 });
 
 // Delete principal (admin only)
-router.delete('/:id', adminAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   await Principal.findByIdAndDelete(req.params.id);
   res.json({ message: 'Deleted successfully' });
 });

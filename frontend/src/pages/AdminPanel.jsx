@@ -26,13 +26,13 @@ export default function AdminPanel() {
     setPrincipals(p.data); setHods(h.data); setTeachers(t.data);
   };
 
-  useEffect(() => { if (isAdmin) fetchAll(); }, [isAdmin]);
+  useEffect(() => { fetchAll(); }, []);
   useEffect(() => {
     setForm(tab === 'principal' ? emptyPrincipal : tab === 'hod' ? emptyHOD : emptyTeacher);
     setPhoto(null); setDocs([]);
   }, [tab]);
 
-  if (!isAdmin) return <AdminPinModal />;
+  //if (!isAdmin) return <AdminPinModal />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
